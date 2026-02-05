@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SafeCampus"
+            android:text="Safe Campus"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="@color/rustic_charcoal"
@@ -68,6 +68,22 @@
             android:textColor="@color/rustic_charcoal"
             android:layout_marginBottom="8dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Syed Danish Aslam Bin Syed Mohd Mahzan (2023226002) - CS251"
+            android:textSize="16sp"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Danial Hakim Bin Mohd Arif (2023268728) - CS251"
+            android:textSize="16sp"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="8dp"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -87,7 +103,7 @@
             android:id="@+id/tvWebsite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="https://github.com/yourusername/SafeCampus"
+            android:text="https://github.com/dani-danial/SafeCampus"
             android:textColor="@color/rustic_orange"
             android:autoLink="web"
             android:textSize="16sp"
