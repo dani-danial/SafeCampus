@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="rustic_cream">#FDFBF7</color>     <color name="rustic_beige">#E6E2D6</color>     <color name="rustic_charcoal">#232220</color>  <color name="rustic_orange">#F05E23</color>    <color name="rustic_grey">#4B4944</color>      <color name="black">#232220</color> <color name="white">#FFFFFF</color>
+
+    <color name="purple_200">@color/rustic_orange</color>
+    <color name="purple_500">@color/rustic_charcoal</color>
+    <color name="purple_700">@color/rustic_charcoal</color>
+    <color name="teal_200">@color/rustic_beige</color>
+    <color name="teal_700">@color/rustic_grey</color>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "782157326369",
+    "project_id": "safecampus-f4fb8",
+    "storage_bucket": "safecampus-f4fb8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782157326369:android:4af24baa3739761cd59b60",
+        "android_client_info": {
+          "package_name": "com.example.safecampus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg3GY7MYPcvRwvtgmeLKNDUYN0Aivvukg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

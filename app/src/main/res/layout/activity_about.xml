@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:fillViewport="true"
+    android:background="@color/rustic_cream">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="App Logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SafeCampus"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version 1.0"
+            android:textColor="@color/rustic_grey"
+            android:layout_marginBottom="32dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Developed by:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Muhammad Danial Danny Bin Mazlan (2023885288) - CS251"
+            android:textSize="16sp"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Asfa Danish Bin Hezri (2023885288) - CS251"
+            android:textSize="16sp"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Raisyah Sumaiyah Binti Muhamad Hakem (2023663356) - CS251"
+            android:textSize="16sp"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="8dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/rustic_beige"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="© 2025 SafeCampus Group."
+            android:gravity="center"
+            android:textColor="@color/rustic_grey"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tvWebsite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="https://github.com/yourusername/SafeCampus"
+            android:textColor="@color/rustic_orange"
+            android:autoLink="web"
+            android:textSize="16sp"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Dashboard"
+            android:backgroundTint="@color/rustic_orange"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</ScrollView>

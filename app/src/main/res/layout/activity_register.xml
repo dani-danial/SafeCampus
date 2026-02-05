@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rustic_cream"
+    android:padding="24dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"/>
+
+        <EditText
+            android:id="@+id/etRegRealName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Real Name (e.g. Aisyah)"
+            android:background="@color/rustic_beige"
+            android:padding="16dp"
+            android:textColor="@color/rustic_charcoal"
+            android:textColorHint="@color/rustic_grey"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etRegUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address (e.g. test@gmail.com)"
+            android:inputType="textEmailAddress"
+            android:background="@color/rustic_beige"
+            android:padding="16dp"
+            android:textColor="@color/rustic_charcoal"
+            android:textColorHint="@color/rustic_grey"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etRegPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password (Min 6 chars)"
+            android:inputType="textPassword"
+            android:background="@color/rustic_beige"
+            android:padding="16dp"
+            android:textColor="@color/rustic_charcoal"
+            android:textColorHint="@color/rustic_grey"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/btnRegisterSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SIGN UP"
+            android:backgroundTint="@color/rustic_charcoal"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="14dp"/>
+
+    </LinearLayout>
+</ScrollView>
