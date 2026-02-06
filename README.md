@@ -82,11 +82,11 @@ This mobile app works in tandem with the **Admin Web Dashboard**:
 1.  **Muhammad Danial Danny Bin Mazlan** (Lead Developer)
 2.  Asfa Danish Bin Hezri
 3.  Raisyah Sumaiyah Binti Muhamad Hakem
-4.  Danial Hakim Bin Mohd Arif
-5.  Nur Alisha Maisarah Binti Mohd Nizam
+4.  Nur Alisha Maisarah Binti Mohd Nizam
 
 **Web Admin Team:**
 1.  **Syed Danish Aslam Bin Syed Mohd Mahzan**
+2.   **Danial Hakim Bin Mohd Arif**
 
 ---
 
