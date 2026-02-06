@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         checkPermissionsAndShowLocation();
 
         // 8. Add Example Marker (e.g., Campus Clinic)
-        addMarker(2.2215, 102.4533, "UiTM Jasin", "Main Campus Area");
+
     }
 
     // Helper: Check Internet

@@ -34,7 +34,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         holder.titleView.setText(item.title);
         holder.messageView.setText(item.message);
         holder.typeView.setText(item.type != null ? item.type.toUpperCase() : "INFO");
-        holder.authorView.setText("By " + item.createdBy);
+
+        // REMOVED: holder.authorView.setText(...) <- This was causing the crash!
 
         // Format Date
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault());
@@ -56,14 +57,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     }
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
-        TextView titleView, messageView, typeView, authorView, dateView;
+        // REMOVED: authorView from this list
+        TextView titleView, messageView, typeView, dateView;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.news_title);
             messageView = itemView.findViewById(R.id.news_message);
             typeView = itemView.findViewById(R.id.news_type);
-            authorView = itemView.findViewById(R.id.news_author);
             dateView = itemView.findViewById(R.id.news_date);
         }
     }

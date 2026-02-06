@@ -11,13 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.Priority;
 import com.google.android.material.snackbar.Snackbar;
 
 // Firebase Imports
@@ -55,19 +60,20 @@ public class ReportActivity extends AppCompatActivity {
         tvLocation = findViewById(R.id.tvLocation);
         Button btnSubmit = findViewById(R.id.btnSubmit);
         Button btnCancel = findViewById(R.id.btnCancel);
-        Button btnPickMap = findViewById(R.id.btnPickMap); // NEW BUTTON
+        Button btnPickMap = findViewById(R.id.btnPickMap);
 
-        String[] types = {"Accident", "Crime", "Damaged Facilities", "Suspicious Activity", "Fire Hazard"};
+        // Setup Spinner
+        String[] types = {"Accident", "Crime", "Damaged Facilities", "Suspicious Activity", "Fire Hazard", "Others"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, types);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        // Auto-get current location on start
-        getCurrentLocation();
+        // ✅ 1. Auto-get current location on start (With Permission Check)
+        checkPermissionAndGetLocation();
 
-        // ✅ HANDLE MAP PICKER RESULT
+        // Map Picker Result Handler
         ActivityResultLauncher<Intent> mapPickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -86,6 +92,12 @@ public class ReportActivity extends AppCompatActivity {
             mapPickerLauncher.launch(intent);
         });
 
+        // ✅ 2. Hidden Feature: Tap Location Text to Force Refresh
+        tvLocation.setOnClickListener(v -> {
+            tvLocation.setText("Refreshing GPS signal...");
+            checkPermissionAndGetLocation();
+        });
+
         btnSubmit.setOnClickListener(v -> {
             String desc = etDescription.getText().toString().trim();
             String type = spinner.getSelectedItem().toString();
@@ -95,7 +107,9 @@ public class ReportActivity extends AppCompatActivity {
                 return;
             }
             if (!isLocationSet) {
-                Snackbar.make(v, "Please select a location first!", Snackbar.LENGTH_SHORT).show();
+                // Try one last time if location is missing
+                checkPermissionAndGetLocation();
+                Snackbar.make(v, "Fetching location... please wait a moment.", Snackbar.LENGTH_LONG).show();
                 return;
             }
 
@@ -121,21 +135,50 @@ public class ReportActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(v -> finish());
     }
 
-    private void getCurrentLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
-                if (location != null) {
-                    currentLat = location.getLatitude();
-                    currentLng = location.getLongitude();
-                    isLocationSet = true;
-                    updateLocationUI("Current GPS");
-                }
-            });
+    // ✅ 3. Permission Check Wrapper
+    private void checkPermissionAndGetLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 100);
+        } else {
+            getCurrentLocation();
         }
     }
 
+    // ✅ 4. Handle Permission Result
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            getCurrentLocation();
+        } else {
+            Toast.makeText(this, "Permission Denied. Location required.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // ✅ 5. Get Real-Time Location (Replaces outdated getLastLocation)
+    private void getCurrentLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+            // PRIORITY_HIGH_ACCURACY forces a fresh GPS ping (crucial for Emulators)
+            fusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
+                    .addOnSuccessListener(this, location -> {
+                        if (location != null) {
+                            currentLat = location.getLatitude();
+                            currentLng = location.getLongitude();
+                            isLocationSet = true;
+                            updateLocationUI("Current GPS");
+                        } else {
+                            tvLocation.setText("Searching for satellites...");
+                        }
+                    });
+        }
+    }
+
+    // ✅ 6. UI Update with Time
     private void updateLocationUI(String source) {
-        String time = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
-        tvLocation.setText("Source: " + source + "\nLat: " + String.format("%.5f", currentLat) + "\nLon: " + String.format("%.5f", currentLng));
+        String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+        tvLocation.setText("Source: " + source + "\nLat: " + String.format("%.5f", currentLat) +
+                "\nLon: " + String.format("%.5f", currentLng) +
+                "\nTime: " + time);
     }
 }

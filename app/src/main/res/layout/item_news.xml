@@ -63,15 +63,7 @@
             android:textColor="#555555"
             android:layout_marginTop="4dp"/>
 
-        <TextView
-            android:id="@+id/news_author"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="By Admin"
-            android:textSize="12sp"
-            android:textColor="#AAAAAA"
-            android:gravity="end"
-            android:layout_marginTop="8dp"/>
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

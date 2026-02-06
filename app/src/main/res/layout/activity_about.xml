@@ -84,6 +84,14 @@
             android:textColor="@color/rustic_charcoal"
             android:layout_marginBottom="8dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6. Nur Alisha Maisarah Binti Mohd Nizam  (2023260322) - CS251"
+            android:textSize="16sp"
+            android:textColor="@color/rustic_charcoal"
+            android:layout_marginBottom="8dp"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
