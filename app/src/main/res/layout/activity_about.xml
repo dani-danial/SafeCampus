@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1. Muhammad Danial Danny Bin Mazlan (2023885288) - CS251"
+            android:text="1. Muhammad Danial Danny Bin Mazlan (2023885288) - Mobile Application"
             android:textSize="16sp"
             android:textColor="@color/rustic_charcoal"
             android:layout_marginBottom="8dp"/>
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4. Syed Danish Aslam Bin Syed Mohd Mahzan (2023226002) - CS251"
+            android:text="4. Syed Danish Aslam Bin Syed Mohd Mahzan (2023226002) - Admin Web"
             android:textSize="16sp"
             android:textColor="@color/rustic_charcoal"
             android:layout_marginBottom="8dp"/>
@@ -105,16 +105,46 @@
             android:text="© 2025 SafeCampus Group."
             android:gravity="center"
             android:textColor="@color/rustic_grey"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="20dp"/>
 
         <TextView
-            android:id="@+id/tvWebsite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📱 Mobile Application Repository:"
+            android:textStyle="bold"
+            android:textColor="@color/rustic_charcoal"
+            android:gravity="center"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvWebsite1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="https://github.com/dani-danial/SafeCampus"
             android:textColor="@color/rustic_orange"
             android:autoLink="web"
             android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💻 Admin Web Repository:"
+            android:textStyle="bold"
+            android:textColor="@color/rustic_charcoal"
+            android:gravity="center"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvWebsite2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="https://github.com/malsaaaa/SafeCampus"
+            android:textColor="@color/rustic_orange"
+            android:autoLink="web"
+            android:textSize="16sp"
+            android:gravity="center"
             android:layout_marginBottom="32dp"/>
 
         <Button

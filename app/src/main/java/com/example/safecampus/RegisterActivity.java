@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Map<String, Object> user = new HashMap<>();
                             user.put("fullName", name);
                             user.put("email", email);
-                            user.put("role", "student"); // Default role
+                            user.put("role", "user"); // Default role
 
                             db.collection("users").document(userId).set(user)
                                     .addOnSuccessListener(aVoid -> {
